@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1 class="text-center">Welcome to the Movie Website</h1>
+    <h4 class="text-center">{{ user.username | upper }}!</h4>
+    {% if user.is_authenticated and user.is_superuser %}
+    <div class="container">
+        <h2 class="text-center">Admin Panel</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{% url 'movieapp:add_category' %}" class="btn btn-primary btn-lg btn-block mb-3">Add New Category</a>
+                <a href="{% url 'movieapp:add_movie' %}" class="btn btn-primary btn-lg btn-block mb-3">Add New Movie</a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'movieapp:users' %}" class="btn btn-primary btn-lg btn-block mb-3">View Users</a>
+                <a href="{% url 'movieapp:view_categories' %}" class="btn btn-primary btn-lg btn-block mb-3">View Categories</a>
+            </div>
+        </div>
+        <!-- Add more options as needed -->
+    </div>
+    {% else %}
+        <div class="container text-center">
+            <h2>No Admin Privileges</h2>
+            <a href="{% url 'movieapp:register' %}" class="btn btn-primary">Register</a>
+            <a href="{% url 'movieapp:login' %}" class="btn btn-primary">Login</a>
+        </div>
+    {% endif %}
+{% endblock %}

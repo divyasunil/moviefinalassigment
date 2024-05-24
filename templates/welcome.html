@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+
+  <div class="container">
+        <div class="welcome-content">
+            <h1 class="welcome-heading">Welcome to Our Site!</h1>
+            <p class="welcome-text">Thank you for registering on our site. We're excited to have you as a member of our community!</p>
+            <p class="welcome-text">Feel free to explore our site and discover all the features we have to offer.</p>
+            <p>If you already have an account, please <a href="{% url 'movieapp:login' %}" class="login-link">login here</a>.</p>
+        </div>
+    </div>
+
+{% endblock %}

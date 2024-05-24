@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="text-center mb-4">Delete Movie</h1>
+            <p>Are you sure you want to delete the movie <strong>{{ movie.title }}</strong>?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="{% url 'movieapp:home' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

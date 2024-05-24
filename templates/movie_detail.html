@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="text-center mb-4">{{ movie.title }}</h1>
+            <div class="text-center">
+                <img src="{{ movie.poster.url }}" alt="{{ movie.title }} poster" class="img-fluid mb-4">
+            </div>
+            <p><strong>Description:</strong> {{ movie.description }}</p>
+            <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+            <p><strong>Actors:</strong> {{ movie.actors }}</p>
+            <p><strong>Category:</strong> {{ movie.category.name|upper }}</p>
+            <p><strong>Added by:</strong> {{ movie.added_by }}</p>
+            <p class="text-center"><a href="{{ movie.trailer_link }}" class="btn btn-primary">Watch Trailer</a></p>
+
+            {% if user == movie.added_by %}
+            <a href="{% url 'movieapp:edit_movie' movie.id %}" class="btn btn-primary">Edit</a>
+            <form id="delete-movie-form" action="{% url 'movieapp:delete_movie' movie.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+            </form>
+            {% endif %}
+
+            <h2 class="mt-5">Reviews</h2>
+            <div class="card-deck">
+                {% for review in reviews %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ review.user.username }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Rating: <span class="badge badge-primary">{{ review.rating }}</span></h6>
+                        <p class="card-text">{{ review.comment }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <h4>Add a Review</h4>
+            <form method="post" action="{% url 'movieapp:review_movie' movie.id %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Submit Review</button>
+            </form>
+
+            <div class="text-center mt-4">
+                <a href="{% url 'movieapp:home' %}" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

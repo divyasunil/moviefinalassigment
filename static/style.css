@@ -1,0 +1,124 @@
+body{
+    background-color:#ffffff;
+}
+h1{
+    color: #ff5733;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+ .welcome-content {
+    text-align: center;
+}
+.welcome-heading {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.welcome-text {
+    font-size: 24px; /* Increased font size */
+    margin-bottom: 20px;
+}
+.login-link {
+    font-size: 24px; /* Increased font size */
+    color: #007bff;
+    text-decoration: none;
+}
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Login */
+.lcontainer {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.login-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    background-color: #fffffe;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+.register-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.register-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.register-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.register-form {
+    background-color: #fffffe;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.register-form input[type="text"],
+.register-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.home-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.custom-close-button{
+    font-size: 3rem !important;
+    margin-bottom: 20px !important;
+}
+
+.category-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}

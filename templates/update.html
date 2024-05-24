@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Update Movie</h2>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% if form.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Error!</strong> {{ form.errors }}
+                            </div>
+                        {% endif %}
+                        {{ form.as_p }}
+                        <br/>
+                        <input type="submit" class="btn btn-primary" value="Update Movie">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<form method="POST" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    {% if form.errors %}-->
+<!--        <div class="error">-->
+<!--            {{ form.errors }}-->
+<!--        </div>-->
+<!--    {% endif %}-->
+<!--    <br/>-->
+<!--    <input type="submit" value="Update Movie">-->
+<!--</form>-->
+{% endblock %}

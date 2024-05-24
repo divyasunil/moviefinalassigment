@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block body %}
+<!--    <h1>Add a New Movie</h1>-->
+<!--    <form method="post" enctype="multipart/form-data">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <button type="submit">Add Movie</button>-->
+<!--    </form>-->
+<!--    <a href="{% url 'movieapp:home' %}">Back to Home</a>-->
+
+
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <div class="banner">
+                <h1>New Movie</h1>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="title">Title</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" name="title" id="title" class="form-control" placeholder="Enter Movie Title" required>
+                    </div>
+                </div>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="poster">Poster</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="file" name="poster" id="poster" class="form-control-file" required>
+                    </div>
+                </div>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="description">Description</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <textarea name="description" id="description" class="form-control" placeholder="Enter Movie Description" required></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="release_date">Release Date</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="date" name="release_date" id="release_date" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="actors">Actors</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" name="actors" id="actors" class="form-control" placeholder="Enter Actors" required>
+                    </div>
+                </div>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="category">Category</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select name="category" id="category" class="form-control" required>
+                            <option value="">Select Category</option>
+                            <!-- Populate options dynamically from your Category model -->
+                            {% for category in categories %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="trailer_link">Trailer Link</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="url" name="trailer_link" id="trailer_link" class="form-control" placeholder="Enter Trailer Link" required>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-block">
+                <button class="btn btn-success" type="submit">Add New Movie</button>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="/" class="btn btn-secondary">Back to Movie List</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+

@@ -1,0 +1,37 @@
+mkdir MovieWebsite
+cd MovieWebsite
+mkvirtualenv moviesite
+pip install django
+django-admin startproject movieproject
+cd productproject
+python manage.py startapp movieapp
+
+python manage.py runserver
+
+py manage.py migrate
+python manage.py createsuperuser
+Usename:divya
+Email address: divyaindu13@gmail.com
+Password:12345
+
+ py manage.py makemigrations
+ py manage.py migrate
+
+*****************************************************************
+
+divya
+12345
+
+Ram
+ramram@12345
+
+deepak
+deepak@12345
+
+simi
+
+raj
+
+anusha
+
+divya1

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block body %}
+    <h1 class="text-center">Welcome to the Movie World </h1>
+    {% if user.is_authenticated %}
+        <h4 class="text-center">{{ user.username | upper }}!</h4>
+        <h2 class="text-center ">All Movies</h2>
+        <div class="container mt-5">
+            <div class="row justify-content-end">
+                <div class="col-lg-6">
+                    <form method="GET" action="{% url 'movieapp:search_result' %}">
+                        <div class="input-group">
+                            <input type="text" name="query" class="form-control" placeholder="Search movies...">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-3 mb-3">
+            <div class="row">
+                {% for movie in movies %}
+                <div class="col-md-3 mb-3">
+                    <div class="card" style="width: 17rem;">
+                        <img class="card-img-top" src="{{ movie.poster.url }}" width="200" height="200" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                            <p class="card-text">{{ movie.release_date.year }}</p>
+                            <p class="card-text">{{ movie.category.name }}</p>
+                            <p>Added by:{{ movie.added_by }}</p>
+                            <a href="{% url 'movieapp:movie_detail' movie.id %}" class="btn btn-primary d-inline">Details</a>
+
+                            {% if user == movie.added_by %}
+                            <div class="d-inline ml-5">
+                                <a href="{% url 'movieapp:edit_movie' movie.id %}" class="text-primary font-weight-bold"><i class="bi bi-pencil" style="font-size: x-large;"></i></a>
+                                <form id="delete-movie-form" action="{% url 'movieapp:delete_movie' movie.id %}" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="button" class="btn btn-link" onclick="confirmDelete()"><i class="bi bi-trash text-danger font-weight-bold" style="font-size: x-large;"></i></button>
+                                </form>
+                            </div>
+                            {% else %}
+                            <div class="mb-4"></div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <div class="container text-center mt-5">
+            <p>Explore our collection of movies. Please <strong>register</strong> or <strong>login</strong> to view more.</p>
+            <a href="{% url 'movieapp:register' %}" class="btn btn-primary mr-3">Register</a>
+            <a href="{% url 'movieapp:login' %}" class="btn btn-secondary">Login</a>
+        </div>
+    {% endif %}
+{% endblock %}
+

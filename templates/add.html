@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <div class="banner">
+                <h1>New Movie</h1>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Enter Movie Name" required>
+                    </div>
+                </div>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="year">Released Year</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" name="year" id="year" class="form-control" placeholder="Enter Released Year" required>
+                    </div>
+                </div>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="desc">Description</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <textarea name="desc" id="desc" class="form-control" placeholder="Enter Description" required></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="item mb-3">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label for="img">Image</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="file" name="img" id="img" class="form-control-file" required>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-block">
+                <button class="btn btn-success" type="submit">Add New Movie</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
