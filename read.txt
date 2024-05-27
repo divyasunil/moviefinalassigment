@@ -35,3 +35,79 @@ raj
 anusha
 
 divya1
+***************************************************************
+
+Python Anywhere
+username: divyafinalmovie
+email: divyaindu13@gmail.com
+p: divyaR@13
+
+bash:
+pwd
+mkvirtualenv movietest --python=/usr/bin/python3.6
+git clone https://github.com/divyasunil/moviefinalassigment
+ls
+# move inside the folder where manage.py present
+cd moviefinalassigment/
+
+pip install django
+pip install mysql-connector-python
+pip install pillow
+pip install mysqlclient
+
+
+create web app
+manual config
+python3.6
+
+edit WSGI configuration file:/var/www/divyarohith_pythonanywhere_com_wsgi.py
+keep only DJANGO code
+
+update path with manage.py file
+get using pwd in bash
+path = '/home/divyafinalmovie/moviefinalassigment'
+get  folder of settings.py file
+os.environ['DJANGO_SETTINGS_MODULE'] = 'movieproject.settings'
+save the file
+
+edit settings.py
+ALLOWED_HOSTS = ['*']
+
+Create Database
+set password : divyaCG@12345
+ set database name : finalmoviedatabase
+
+
+sql
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'divyafinalmovie$finalmoviedatabase',
+        'USER': 'divyafinalmovie',
+        'PASSWORD': 'divyaCG@12345',
+        'HOST': 'divyafinalmovie.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
+    }
+}
+
+set virtual env in webapp page
+/home/divyafinalmovie/.virtualenvs/movietest
+
+set static file path
+/home/divyafinalmovie/moviefinalassigment/static
+URL	: /static/
+Directory:  /home/divyafinalmovie/moviefinalassigment/static
+
+migrations
+got to ->>>  /home/divyafinalmovie/moviefinalassigment/movieapp/migrations
+delete all files except __init__.py (cart & eshop)
+
+open console-->> mysql console
+mysql>show databases;
+
+in bash console
+ python manage.py makemigrations
+ python manage.py migrate
+
+python manage.py runserver 8001
+https://divyafinalmovie.pythonanywhere.com/
